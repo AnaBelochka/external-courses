@@ -1,17 +1,17 @@
 function evenOrOdd (array) {
-    var countArrayElements = [0, 0, 0];
+    var countOdd = countEven = countZero = 0;
     array.forEach(element => {
         if (typeof(element) === 'number') {
             if (element === 0) {
-                countArrayElements[2]++;    
+                countZero++;    
             } else if (element%2 === 0){
-                countArrayElements[0]++;
+                countEven++;
             }
-            else countArrayElements[1]++;    
+            else countOdd++;    
         }
     });
     
-    return countArrayElements;
+    return [countEven, countOdd, countZero];
 }
 
 module.exports = evenOrOdd;

@@ -1,23 +1,17 @@
 function complexOrSimpleNummer (variable) {
-    var flag = 0;
-    var tempVariable = "";
     if (variable > 1000) {
-        tempVariable = "Данные неверны";
-        flag = 1;
+        return "Данные неверны";
     }
-    else if (variable === 2) {
-        tempVariable = "Число 2 - простое число";
-        flag = 1;
+    if (variable === 1 || variable === 0) {
+        return "Введено число 1 или 0";
     }
-    else {
+    if (variable < 1000 && variable >= 2) {
         for (var index = 2; index < variable; index++) {
-            if (variable%index === 0) {
-                tempVariable = "Число " + variable + " - составное число";    
-                flag = 1;
+            if (variable%index === 0 && variable !== 2) {
+                return "Число " + variable + " - составное число";    
             }
         }
     }
-    if (flag) return tempVariable;
     return "Число " + variable + " - простое число";
 }
 

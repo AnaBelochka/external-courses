@@ -1,8 +1,8 @@
 function stringOrNumber (variable){
-    var undefinedVariable;
-    var typeOfVariable = typeof(variable);
+    var typeOfVariable = typeof variable;
+    if (isNaN(variable)) return undefined;
     if (typeOfVariable === 'number' || typeOfVariable === 'string') return typeOfVariable;
-    return undefinedVariable;
+    return undefined;
 }
 
 module.exports = stringOrNumber;
