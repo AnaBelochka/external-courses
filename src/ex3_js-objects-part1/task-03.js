@@ -1,9 +1,5 @@
 function findProperty (string, object){
-    for (const key in object) {
-        if (key === string) {
-            return true;    
-        }
-    }
+    if (string in object) return true;
     return false;
 }
 
