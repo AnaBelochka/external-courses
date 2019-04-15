@@ -1,0 +1,28 @@
+div {
+    position:relative;
+    width:400px;
+    height:200px;
+    background-color:#5FB78C;
+}
+    
+div:before {
+    content:'';
+    position:absolute;
+    width:100%;
+    height:100%;
+    left:5px;
+    top:5px;
+    background-color:#90CDAF;
+    z-index:-1;
+}
+    
+div:after {
+    content:'';      
+    position:absolute;
+    width:100%;
+    height:100%;
+    left:10px;
+    top:10px;
+    background-color:#BFE3D1;
+    z-index:-2;
+}

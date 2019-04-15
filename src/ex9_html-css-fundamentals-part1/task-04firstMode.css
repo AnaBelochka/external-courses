@@ -1,0 +1,24 @@
+div {
+    position:relative;
+    width:400px;
+    height:200px;
+}
+    
+.first {
+    background-color:#5FB78C;
+    z-index:2;
+}
+    
+.second {
+    background-color:#90CDAF;
+    margin-top:-195px;
+    margin-left:5px;
+    z-index:1;
+}
+    
+.third {
+    background-color:#BFE3D1;
+    margin-top:-195px;
+    margin-left:10px;
+    z-index:0;
+}
