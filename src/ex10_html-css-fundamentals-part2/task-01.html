@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Task-01</title>
 </head>
 <body>
@@ -16,7 +19,7 @@
             </p>
 
             <p>
-                <label for="firstid">
+                <label for="firstName">
                     First Name
                     <input type="text" id="firstName">
                 </label>
@@ -30,11 +33,9 @@
             </p>
             
             <p>
-                <label for="sex">
-                    You are
-                    <input type="radio" id="sex" value="male">male
-                    <input type="radio" id="sex" value="female">female
-                </label>
+                You are
+                <input type="radio" name="sex" value="male">male
+                <input type="radio" name="sex" value="female">female
             </p>
             
             <p>
@@ -55,11 +56,9 @@
             </p>
             
             <p>
-                <label for="city">
-                    City
-                    <input type="checkbox" id="city" value="Ryazan">Ryazan 
-                    <input type="checkbox" id="city" value="Moscow">Moscow
-                </label>
+                City
+                <input type="checkbox" name="city" value="Ryazan">Ryazan 
+                <input type="checkbox" name="city" value="Moscow">Moscow
             </p>
             
             <p>
@@ -74,7 +73,7 @@
             <p>
                 <label for="title">
                     Title
-                    <select id="title" id="title" multiple size="8">
+                    <select name="title" id="title" multiple size="8">
                         <optgroup label="Technologies">
                             <option value="Web Master">Web Master</option>
                             <option value="Database Administrator">Database Administrator</option>
