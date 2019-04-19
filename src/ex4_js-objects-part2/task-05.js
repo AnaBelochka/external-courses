@@ -1,5 +1,5 @@
 function searchSubstring (string, substring) {
-    if (numberOfDymbol === string.search(substring)) {
+    if (substring === string.search(substring)) {
         return true;   
     }
     return false;
