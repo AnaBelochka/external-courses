@@ -1,6 +1,5 @@
-function createObjectWithoutPrototype () {
-    var object = Object.create(null);
-    return object;
+function createObjectWithoutPrototype () {    
+    return Object.create(null);;
 }
 
 module.exports = createObjectWithoutPrototype;
