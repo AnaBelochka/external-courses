@@ -4,10 +4,10 @@ obj.b = 2;
 function findPropertyInPrototype (property, object) {
     for (const key in object) {
         if (object.hasOwnProperty(property)) {
-            return false;
+            return 0;
         }
     }
-    return true;
+    return 1;
 }
 
 module.exports = findPropertyInPrototype;
