@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="task-01.css">
+    <title>Task-01</title>
+</head>
+<body>
+    <form action="http://httpbin.org/get" method="POST">
+        <fieldset>
+            <legend>Rersonal data</legend>
+
+            <p>
+                <label for="">
+                    Surname
+                    <input type="text" name="surname">
+                </label>
+            </p>
+
+            <p>
+                <label for="">
+                    First Name
+                    <input type="text" name="firstName">
+                </label>
+            </p>
+
+            <p>
+                <label for="">
+                    Middle Name
+                    <input type="text" name="middleName">
+                </label>
+            </p>
+            
+            <p>
+                <label for="">
+                    You are
+                    <input type="radio" name="sex" value="male">male
+                    <input type="radio" name="sex" value="female">female
+                </label>
+            </p>
+            
+            <p>
+                <label for="">
+                    Age
+                    <input type="date" name="age" min="2001-01-01" max="2102-01-01">
+                </label>
+            </p>
+            
+            <p>
+                <label for="">
+                    Country of Residence
+                    <select name="country" id="country">
+                        <option value="USA">USA</option>
+                        <option value="Canada">Canada</option>
+                    </select>
+                </label>
+            </p>
+            
+            <p>
+                <label for="">
+                    City
+                    <input type="checkbox" name="city" value="Ryazan">Ryazan 
+                    <input type="checkbox" name="city" value="Moscow">Moscow
+                </label>
+            </p>
+            
+            <p>
+                <label for="">
+                    Photography
+                    <input type="file" name="file">
+                </label>
+            </p>
+            
+            <hr>
+
+            <p>
+                <label for="">
+                    Title
+                    <select name="title" id="title" multiple size="8">
+                        <optgroup label="Technologies">
+                            <option value="Web Master">Web Master</option>
+                            <option value="Database Administrator">Database Administrator</option>
+                            <option value="Computer-aided design">Computer-aided design</option>
+                        </optgroup>
+
+                        <optgroup label="Finance">
+                                <option value="Economic Planning">Economic Planning</option>
+                                <option value="Management accounting">Management accounting</option>
+                                <option value="Budgeting and planning">Budgeting and planning</option>
+                        </optgroup>
+                    </select>
+                </label>
+            </p>
+
+            <p>
+                <label for="">
+                    Salary
+                    <input type="range" min="0" max="100" step="1" value="50"> 
+                </label>
+            </p>
+
+            <p>
+                <textarea name="comment" id="comment" cols="50" rows="10" placeholder="Tell us about yourself..."></textarea>
+            </p>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Contact Information</legend>
+
+            <p>
+                <label for="">
+                    Site
+                    <input type="url" name="site">
+                </label>
+            </p>
+
+            <p>
+                <label for="">
+                    Email
+                    <input type="email" name="email">
+                </label>
+            </p>
+
+            <p>
+                <label for="">
+                    Phone
+                    <input type="tel" name="phone">
+                </label>
+            </p>
+
+        </fieldset>
+
+        <p>
+            <label for="">
+                Password
+                <input type="password">
+            </label>
+        </p>
+
+        <p>
+            <label for="">
+                <input type="submit" name="submit" id="submit" value="Send">
+                <input type="submit" name="submit" id="submit" value="Reset">
+            </label>
+        </p>
+
+    </form>
+</body>
+</html>

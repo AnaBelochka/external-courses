@@ -1,0 +1,499 @@
+html {
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    margin: 0;
+    width: 2000px;
+    height: 1700px;
+}
+
+#logoDesktop, #logoLaptop {
+    width: 403px;
+    height: 93px;
+    position: relative;
+    margin: 61px;
+}
+
+#imageLogo {
+    position: absolute;
+    z-index: 1;
+}
+
+#burgerMenu {
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+}
+
+#logoLaptop, #burgerMenu {
+    display: none;
+}
+
+#layerOne, #layerTwo, #layerThree {
+    margin: 5px;
+    width: 60px;
+    height: 10px;
+    background-color: #3687c4;
+}
+
+#textLogo {
+    width: 77px;
+    height: 41px;
+    position: absolute;
+    top: 26px;
+    left: 163px;
+    color: #3687c4;
+    font-size: 41px;
+    font-weight: 400; 
+    line-height: 34px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    z-index: 2;
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#textInfo {
+    display: flex;
+    width: 227px;
+    height: 46px;
+    border: 2px solid #d4d4d5;
+    background-color: #ffffff;
+    margin-bottom: 15px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    position: relative;
+    
+}
+
+#textOutput {
+    margin-block-start: 0;
+    margin-block-end: 0;    
+    color: #6d6e71;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 27px;
+}
+
+#icons {
+    width: 227px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#iconPhone {
+    width: 28px;
+    height: 29px;
+    position: relative;
+    cursor: pointer;
+}
+
+#iconPhone:hover #iconPhone{
+    visibility: visible;
+}
+
+#iconGeolocation {
+    width: 25px;
+    height: 34px;
+    position: relative;
+    cursor: pointer;
+}
+
+#iconMail {
+    width: 30px;
+    height: 25px;
+    position: relative;
+    cursor: pointer;
+}
+
+#iconPhoneTriangle, #iconGeolocationTriangle, #iconMailTriangle {
+    visibility: hidden;
+}
+
+#iconPhoneTriangle::before, #iconGeolocationTriangle::before, #iconMailTriangle::before {
+    content: "";
+    position: absolute;
+    border: 20px solid transparent;	
+    border-top: 14px solid #d4d4d5;
+}
+
+#iconPhoneTriangle::after, #iconGeolocationTriangle::after, #iconMailTriangle::after {
+    content: "";
+    position: absolute;
+    border: 20px solid transparent;	
+    border-top: 14px solid white;
+}
+
+#iconPhoneTriangle::before {
+    top: -19px;
+    left: -6px;
+}
+
+#iconPhoneTriangle::after {
+    top: -21px;
+    left: -6px;
+}
+
+#iconGeolocationTriangle::before {
+    top: -16px;
+    left: -6px;
+}
+
+#iconGeolocationTriangle::after {
+    top: -19px;
+    left: -6px;
+}
+
+#iconMailTriangle::before {
+    top: -22px;
+    left: -6px;
+}
+
+#iconMailTriangle::after {
+    top: -25px;
+    left: -6px;
+}
+
+#iconPhone:hover #iconPhoneTriangle,
+#iconGeolocation:hover #iconGeolocationTriangle,
+#iconMail:hover #iconMailTriangle {
+    visibility: visible;
+}
+
+.divideIcons {
+    width: 1px;
+    height: 24px;
+    background-color: #bcbec3;
+}
+
+#navigation {
+    display: flex;
+    border-top: 1px solid #eceef4;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#navList {
+    padding-inline-start: 0;
+    display: flex;
+    align-items: center; 
+    margin-block-start: 0;
+    margin-block-end: 0;  
+}
+
+#divideList {
+    width: 1px;
+    height: 86px;
+    background-color: #eceef4;
+    font-size: 13px;
+    position: relative;
+}
+
+li {
+    list-style-type: none;
+    padding: 0 20px 0 20px;
+}
+
+li a{
+    width: 122px;
+    height: 10px;
+    color: #6d6e71;
+    font-family: "Open Sans";
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 27px;
+    text-decoration: none;
+}
+
+#homeTriangle, #whatAboutIsamaTriangle, #whatWeDoTriangle, #ourProjectsTriangle, #excellentTeamTriangle, #contactTriangle {
+    position: relative;
+    visibility: hidden;
+}
+
+#homeTriangle::before, #whatAboutIsamaTriangle::before, #whatWeDoTriangle::before, #ourProjectsTriangle::before, #excellentTeamTriangle::before, #contactTriangle::before {
+    content: "";
+    position: absolute;
+    border: 18px solid transparent;	
+    border-bottom: 10px solid #1faae2;
+    bottom: -35px;
+}
+
+#homeTriangle::before {
+    left: 0;
+}
+
+#whatAboutIsamaTriangle::before {
+    left: 39px;
+}
+
+#whatWeDoTriangle::before, #ourProjectsTriangle::before {
+    left: 25px;
+}
+
+#excellentTeamTriangle::before {
+    left: 30px;
+}
+
+#contactTriangle::before {
+    left: 10px;
+}
+
+#home:hover, #whatAboutIsama:hover, #whatWeDo:hover, #ourProjects:hover, #excellentTeam:hover, #contact:hover {
+    color: #1faae2;
+}
+
+#home:hover #homeTriangle, #whatAboutIsama:hover #whatAboutIsamaTriangle, 
+#whatWeDo:hover #whatWeDoTriangle, #ourProjects:hover #ourProjectsTriangle,
+#excellentTeam:hover #excellentTeamTriangle, #contact:hover #contactTriangle {
+    visibility: visible;
+}
+
+#search {
+    display: flex;
+    align-items: center;
+}
+
+#iconSearch {
+    width: 25px;
+    height: 25px;
+}
+
+#serchInput {
+    width: 200px;
+    height: 25px;
+    border: none;
+    font-size: 15px;
+    margin: 15px;
+}
+
+#mainContent{
+    display: flex;
+    flex-direction: column;
+}
+
+#mainContainer {
+    width: 2000px;
+    height: 885px;
+    position: relative;
+    z-index: 0;
+    background-image: url('iback.png')
+}
+
+#mainTextUppercase {
+    position: absolute;
+    width: 672px;
+    height: 43px;
+    text-shadow: 1px 1px 8px rgba(1, 1, 1, 0.15);
+    color: #ffffff;
+    font-family: "Open Sans";
+    font-size: 58px;
+    font-weight: 700;
+    line-height: 80.58px;
+    top: 244px;
+    left: 617px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    z-index: 2;
+}
+
+#specChar {
+    width: 88px;
+    height: 91px;
+    position: absolute;
+    top: 255px;
+    left: 623px;
+    z-index: 1;
+}
+
+#mainText {
+    width: 705px;
+    height: 45px;
+    text-shadow: 1px 1px 2px rgba(1, 1, 1, 0.15);
+    color: #ffffff;
+    font-size: 45px;
+    font-weight: 300;
+    line-height: 80.58px;
+    position: absolute;
+    top: 308px;
+    left: 724px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    z-index: 2;
+}
+
+#mainSubImage {
+    position: absolute;
+    top: 520px;
+    left: 825px;
+    z-index: 2;
+    display: flex;
+}
+
+#bottomImageOne,  #bottomImageTwo{
+    position: absolute;
+    top: 176px;
+    z-index: 3;
+}
+
+#iconGreenHeart, #iconYellowHeart {
+    position: absolute;
+    z-index: 4;
+    bottom: 23px;
+}
+
+#iconGreenHeart {
+    left: 126px;
+}
+
+#iconYellowHeart {
+    left: 448px;
+}
+
+#textGreenLike, #textYellowLike {
+    position: absolute;
+    z-index: 4;
+    bottom: 54px;
+    width: 27px;
+    height: 11px;    
+    font-family: "Open Sans - Semibold";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 58px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+#textGreenLike {
+    color: #ffffff;
+    left: 170px;
+}
+
+#textYellowLike {
+    color: #cc9800;
+    left: 492px;
+}
+
+#thirdImageArrow {
+    z-index: 4;
+    position: absolute;
+    right: 44px;
+    top: 101px;
+}
+
+#secondImage {
+    margin: 0 1px 0 1px;
+}
+
+#articles {
+    display: flex;
+    align-items: center;
+    height: 512px;
+    justify-content: center;
+}
+
+#article {
+    display: flex;
+    height: 301px;
+    width: 522px;
+    margin: 61px;
+}
+
+#articleTitle {
+    color: #6d6e71;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+#articleContent {
+    color: #6d6e71;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+}
+
+#articleImage {
+    margin-right: 30px;
+}
+
+#searchLaptop {
+    display: none;
+}
+
+@media (max-width: 1345px) and (max-height: 1280px) {
+
+    html, body {
+        margin: 0;
+        width: 1345px;
+        height: 1280px;
+    }
+
+    #header {
+        justify-content: space-between;
+    }
+    #navigation, #mainSubImage, #icons, #info {
+        display: none;
+    }
+
+    #logoDesktop {
+        display: none;
+    }
+
+    #logoLaptop {
+        margin: 0;
+    }
+
+    #logoLaptop, #searchLaptop, #burgerMenu {
+        display: block;
+    }
+
+    #searchLaptop {
+        margin-right: 25px;
+    }
+
+    #mainContainer {
+        width: 1345px;
+        height: 736px;
+        background-image: url('ibackLaptop.png')
+    }
+
+    #articles {
+        flex-direction: column;
+    }
+
+    #article {
+        width: 969px;
+        margin: 0;
+    }
+
+    #mainTextUppercase {
+        top: 261px;
+        left: 288px;
+    }
+    
+    #specChar {
+        top: 274px;
+        left: 296px;
+    }
+    
+    #mainText {
+        top: 305px;
+        left: 389px;
+    }
+    
+    
+}
