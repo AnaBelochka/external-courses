@@ -15,7 +15,7 @@ body {
     margin: 61px;
 }
 
-#imageLogo {
+.imageLogo {
     position: absolute;
     z-index: 1;
 }
@@ -37,7 +37,7 @@ body {
     background-color: #3687c4;
 }
 
-#textLogo {
+.textLogo {
     width: 77px;
     height: 41px;
     position: absolute;
@@ -195,7 +195,7 @@ body {
     margin-block-end: 0;  
 }
 
-#divideList {
+.divideList {
     width: 1px;
     height: 86px;
     background-color: #eceef4;
@@ -267,12 +267,12 @@ li a{
     align-items: center;
 }
 
-#iconSearch {
+.iconSearch {
     width: 25px;
     height: 25px;
 }
 
-#serchInput {
+.serchInput {
     width: 200px;
     height: 25px;
     border: none;
@@ -405,28 +405,28 @@ li a{
     justify-content: center;
 }
 
-#article {
+.article {
     display: flex;
     height: 301px;
     width: 522px;
     margin: 61px;
 }
 
-#articleTitle {
+.articleTitle {
     color: #6d6e71;
     font-size: 26px;
     font-weight: 700;
     line-height: 24px;
 }
 
-#articleContent {
+.articleContent {
     color: #6d6e71;
     font-size: 16px;
     font-weight: 300;
     line-height: 24px;
 }
 
-#articleImage {
+.articleImage {
     margin-right: 30px;
 }
 
