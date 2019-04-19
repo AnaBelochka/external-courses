@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="task-01.css">
     <title>Task-01</title>
 </head>
 <body>
@@ -15,43 +14,43 @@
             <p>
                 <label for="surname">
                     Surname
-                    <input type="text" name="surname">
+                    <input type="text" id="surid">
                 </label>
             </p>
 
             <p>
-                <label for="firstName">
+                <label for="firstid">
                     First Name
-                    <input type="text" name="firstName">
+                    <input type="text" id="firstName">
                 </label>
             </p>
 
             <p>
-                <label for="middleName">
+                <label for="middleid">
                     Middle Name
-                    <input type="text" name="middleName">
+                    <input type="text" id="middleName">
                 </label>
             </p>
             
             <p>
                 <label for="sex">
                     You are
-                    <input type="radio" name="sex" value="male">male
-                    <input type="radio" name="sex" value="female">female
+                    <input type="radio" id="sex" value="male">male
+                    <input type="radio" id="sex" value="female">female
                 </label>
             </p>
             
             <p>
                 <label for="age">
                     Age
-                    <input type="date" name="age" min="2001-01-01" max="2102-01-01">
+                    <input type="date" id="age" min="2001-01-01" max="2102-01-01">
                 </label>
             </p>
             
             <p>
                 <label for="country">
                     Country of Residence
-                    <select name="country" id="country">
+                    <select id="country" id="country">
                         <option value="USA">USA</option>
                         <option value="Canada">Canada</option>
                     </select>
@@ -61,15 +60,15 @@
             <p>
                 <label for="city">
                     City
-                    <input type="checkbox" name="city" value="Ryazan">Ryazan 
-                    <input type="checkbox" name="city" value="Moscow">Moscow
+                    <input type="checkbox" id="city" value="Ryazan">Ryazan 
+                    <input type="checkbox" id="city" value="Moscow">Moscow
                 </label>
             </p>
             
             <p>
                 <label for="file">
                     Photography
-                    <input type="file" name="file">
+                    <input type="file" id="file">
                 </label>
             </p>
             
@@ -78,7 +77,7 @@
             <p>
                 <label for="title">
                     Title
-                    <select name="title" id="title" multiple size="8">
+                    <select id="title" id="title" multiple size="8">
                         <optgroup label="Technologies">
                             <option value="Web Master">Web Master</option>
                             <option value="Database Administrator">Database Administrator</option>
@@ -97,12 +96,12 @@
             <p>
                 <label for="range">
                     Salary
-                    <input type="range" name="range" min="0" max="100" step="1" value="50"> 
+                    <input type="range" id="range" min="0" max="100" step="1" value="50"> 
                 </label>
             </p>
 
             <p>
-                <textarea name="comment" id="comment" cols="50" rows="10" placeholder="Tell us about yourself..."></textarea>
+                <textarea id="comment" id="comment" cols="50" rows="10" placeholder="Tell us about yourself..."></textarea>
             </p>
 
         </fieldset>
@@ -113,21 +112,21 @@
             <p>
                 <label for="site">
                     Site
-                    <input type="url" name="site">
+                    <input type="url" id="site">
                 </label>
             </p>
 
             <p>
                 <label for="email">
                     Email
-                    <input type="email" name="email">
+                    <input type="email" id="email">
                 </label>
             </p>
 
             <p>
                 <label for="phone">
                     Phone
-                    <input type="tel" name="phone">
+                    <input type="tel" id="phone">
                 </label>
             </p>
 
@@ -136,16 +135,16 @@
         <p>
             <label for="password">
                 Password
-                <input type="password" name="password">
+                <input type="password" id="password">
             </label>
         </p>
 
         <p>
             <label for="send">
-                <input type="submit" name="send" id="submit" value="Send">
+                <input type="submit" id="send" id="submit" value="Send">
             </label>
             <label for="reset">
-                <input type="submit" name="reset" id="submit" value="Reset">
+                <input type="submit" id="reset" id="submit" value="Reset">
             </label>
         </p>
 
