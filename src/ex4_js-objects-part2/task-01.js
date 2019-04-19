@@ -4,7 +4,7 @@ obj.b = 2;
 function findPropertyInPrototype (property, object) {
     for (const key in object) {
         if (object.hasOwnProperty(property)) {
-            return 0;
+            return undefined;
         }
     }
     return 1;

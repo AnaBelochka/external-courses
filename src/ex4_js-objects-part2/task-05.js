@@ -1,5 +1,5 @@
 function searchSubstring (string, substring) {
-    if (substring === string.search(substring)) {
+    if (tring.search(substring) !== -1) {
         return true;   
     }
     return false;
