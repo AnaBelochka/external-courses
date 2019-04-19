@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="task-01.css">
     <title>Task-01</title>
 </head>
 <body>
@@ -12,28 +13,28 @@
             <legend>Rersonal data</legend>
 
             <p>
-                <label>
+                <label for="surname">
                     Surname
                     <input type="text" name="surname">
                 </label>
             </p>
 
             <p>
-                <label>
+                <label for="firstName">
                     First Name
                     <input type="text" name="firstName">
                 </label>
             </p>
 
             <p>
-                <label>
+                <label for="middleName">
                     Middle Name
                     <input type="text" name="middleName">
                 </label>
             </p>
             
             <p>
-                <label>
+                <label for="sex">
                     You are
                     <input type="radio" name="sex" value="male">male
                     <input type="radio" name="sex" value="female">female
@@ -41,14 +42,14 @@
             </p>
             
             <p>
-                <label>
+                <label for="age">
                     Age
                     <input type="date" name="age" min="2001-01-01" max="2102-01-01">
                 </label>
             </p>
             
             <p>
-                <label>
+                <label for="country">
                     Country of Residence
                     <select name="country" id="country">
                         <option value="USA">USA</option>
@@ -58,7 +59,7 @@
             </p>
             
             <p>
-                <label>
+                <label for="city">
                     City
                     <input type="checkbox" name="city" value="Ryazan">Ryazan 
                     <input type="checkbox" name="city" value="Moscow">Moscow
@@ -66,7 +67,7 @@
             </p>
             
             <p>
-                <label>
+                <label for="file">
                     Photography
                     <input type="file" name="file">
                 </label>
@@ -75,7 +76,7 @@
             <hr>
 
             <p>
-                <label>
+                <label for="title">
                     Title
                     <select name="title" id="title" multiple size="8">
                         <optgroup label="Technologies">
@@ -94,9 +95,9 @@
             </p>
 
             <p>
-                <label>
+                <label for="range">
                     Salary
-                    <input type="range" min="0" max="100" step="1" value="50"> 
+                    <input type="range" name="range" min="0" max="100" step="1" value="50"> 
                 </label>
             </p>
 
@@ -110,21 +111,21 @@
             <legend>Contact Information</legend>
 
             <p>
-                <label>
+                <label for="site">
                     Site
                     <input type="url" name="site">
                 </label>
             </p>
 
             <p>
-                <label>
+                <label for="email">
                     Email
                     <input type="email" name="email">
                 </label>
             </p>
 
             <p>
-                <label>
+                <label for="phone">
                     Phone
                     <input type="tel" name="phone">
                 </label>
@@ -133,15 +134,19 @@
         </fieldset>
 
         <p>
-            <label>
+            <label for="password">
                 Password
-                <input type="password">
+                <input type="password" name="password">
             </label>
         </p>
 
         <p>
-            <input type="submit" name="submit" id="send" value="Send">
-            <input type="submit" name="submit" id="reset" value="Reset">
+            <label for="send">
+                <input type="submit" name="send" id="submit" value="Send">
+            </label>
+            <label for="reset">
+                <input type="submit" name="reset" id="submit" value="Reset">
+            </label>
         </p>
 
     </form>
