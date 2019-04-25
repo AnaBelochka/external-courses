@@ -8,7 +8,7 @@ function lowerCamleCase (string) {
             index++;
             newString += string.substring(index, index + 1).toUpperCase();   
         } else {
-            newString += string.substring(index, index + 1);
+            newString += string.substring(index, index + 1).toLowerCase();
         }        
     }
     return newString;
