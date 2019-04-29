@@ -1,0 +1,48 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+} 
+
+#main { 
+    padding: 10px; 
+    border-radius: 5px; 
+    border: 2px solid rgb(0, 59, 168); 
+    background-color: rgb(23, 120, 199); 
+} 
+
+article { 
+    max-width: 100%; 
+    border: 2px solid rgb(0, 59, 168); 
+    background-color: white; 
+} 
+
+#header {
+    background-color: yellowgreen;
+    padding: 10px;
+    position: relative;
+    margin-bottom: 15px;
+    border-bottom: 2px solid yellow;
+    z-index: 2;
+}
+
+#header::before {
+    content: "";
+    position: absolute;
+    border: 20px solid transparent;	
+    border-top: 20px solid yellowgreen;
+    top: 47px;
+    z-index: 2;
+}
+
+#header::after {
+    content: "";
+    position: absolute;
+    border: 20px solid transparent;	
+    border-top: 20px solid yellow;
+    top: 49px;
+    z-index: 1;
+}
+
+p {
+    padding: 5px;
+}
