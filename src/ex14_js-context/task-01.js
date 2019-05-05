@@ -70,7 +70,7 @@ function Calculator () {
 
         return this;
 
-    };
+    };  
 
 }
 

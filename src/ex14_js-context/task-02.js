@@ -74,7 +74,7 @@ function Hangman (word) {
     this.getStatus = function () {
         var status = result + " | errors left " + countErrors;
         console.log(status);
-        return status;
+        return status;  
     };
 
     this.startAgain = function (newWord) {
@@ -87,4 +87,4 @@ function Hangman (word) {
 
 var hangman = new Hangman('webpurple');
 
-module.exports = hangman;
+module.exports = hangman;  
