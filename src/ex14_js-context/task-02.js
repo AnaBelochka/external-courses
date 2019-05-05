@@ -8,7 +8,7 @@ function Hangman (word) {
             res += '_';        
         };
         return res;
-    }
+    }  
 
     result = encodedWord(inputWord);
 

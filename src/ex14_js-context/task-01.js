@@ -4,7 +4,7 @@ function Calculator () {
 
     function isNumeric(number) {
         return !isNaN(parseFloat(number)) && isFinite(number);
-    }
+    }  
 
     this.add = function (variable) {
 
