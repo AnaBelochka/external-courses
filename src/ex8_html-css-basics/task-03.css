@@ -5,23 +5,23 @@ div {
   height: 30px;
 }
 
-#firstMode {
+.first-mode {
   border: 1px solid black;
 }
 
-#secondMode {
+.second-mode {
   outline: 1px solid red;
 }
 
-#thirdMode {
+.third-mode {
   box-shadow: 0 0 0 1px green;
 }
 
-#fourthMode {
+.fourth-mode {
   position: relative;
 }
 
-#fourthMode::before {
+.fourth-mode::before {
   content: '';
   display: block;
   position: absolute;
@@ -33,7 +33,7 @@ div {
   background-color: yellow;
 }
 
-#fourthMode::after {
+.fourth-mode::after {
   content: 'Fourth Mod';
   display: block;
   position: absolute;
@@ -45,6 +45,6 @@ div {
   background-color: white;
 }
 
-#fifthMode {
+.fifth-mode {
   border-style: solid;
 }

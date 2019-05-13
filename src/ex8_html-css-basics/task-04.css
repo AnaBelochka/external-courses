@@ -13,18 +13,18 @@ div {
     margin: 10px;
 }
 
-#first {
+.first {
     background-color: lightblue;
     font-size: 2em;
     height: 120px;
 }
 
-#second {
+.second {
     background-color: rgba(100, 20, 10, 1);
     font-family: 'Verdana', sans-serif;
 }
 
-#fourth {
+.fourth {
     background-image: url('tyt.jpg');
     background-position: center;
     background-size: cover;
