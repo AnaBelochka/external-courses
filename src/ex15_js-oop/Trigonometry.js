@@ -1,8 +1,8 @@
 function TrigonometryCalculator(name) {
-    CalculatorStatus.apply(this, arguments);
+    Calculator.apply(this, arguments);
 }
 
-TrigonometryCalculator.prototype = Object.create(CalculatorStatus.prototype);
+TrigonometryCalculator.prototype = Object.create(Calculator.prototype);
 TrigonometryCalculator.prototype.constructor = TrigonometryCalculator;
 
 TrigonometryCalculator.prototype.sin = function(variable) {
