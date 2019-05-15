@@ -1,0 +1,50 @@
+div {
+  margin: 30px;
+  padding: 10px;
+  width: 100px;
+  height: 30px;
+}
+
+.first-mode {
+  border: 1px solid black;
+}
+
+.second-mode {
+  outline: 1px solid red;
+}
+
+.third-mode {
+  box-shadow: 0 0 0 1px green;
+}
+
+.fourth-mode {
+  position: relative;
+}
+
+.fourth-mode::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  bottom: -2px;
+  right: -2px;
+  padding: 10px;
+  background-color: yellow;
+}
+
+.fourth-mode::after {
+  content: 'Fourth Mod';
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  padding: 10px;
+  background-color: white;
+}
+
+.fifth-mode {
+  border-style: solid;
+}
