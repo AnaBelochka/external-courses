@@ -1,0 +1,54 @@
+a {
+    margin: 20px;
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    padding: 25px 65px;
+    text-transform: uppercase;
+    color:  rgba(85,85,85,1);
+    text-shadow: 0 1px rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 25px;
+    position: relative;
+    z-index: 3;
+    background:  rgba(204,204,204,1);
+    border-radius: 20px;
+  }
+  
+  a:before,
+  a:after{
+    position: absolute;
+    color: rgba(153,153,153,1);
+    content: "★";
+    line-height: 0;
+  }
+  
+  a::before{
+    position: absolute;
+    color: rgba(153,153,153,1);
+    top: 0; right: 0;
+    left: 0; bottom: 0;
+    content: "★";
+    border: 2px solid rgba(102,102,102,1);
+    border-radius: 20px;
+    box-shadow: 0 2px 4px  rgba(0,0,0,0.2), inset 0 0 0 2px  rgba(255,255,255,1);
+    z-index: 0;
+    padding: 37.5px 30px;
+    text-align: right;
+  }
+  
+  
+  a::after{
+    position: absolute;
+    color: rgba(153,153,153,1);
+    top: 10px; right: 10px;
+    left: 10px; bottom: 10px;
+    content: "★";
+    border: 1px solid rgba(170,170,170,1);
+    border-radius: 10px;
+    box-shadow: 0 1px 3px  rgba(0,0,0,0.8), inset 0 25px 0 0 rgba(255,255,255,0.2);
+    z-index: -1;
+    background: #ccc;
+    background: linear-gradient(to bottom, rgba(221,221,221,1) 0%,rgba(170,170,170,1) 100%);
+    padding: 27.5px 20px;
+  }
