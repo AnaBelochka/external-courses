@@ -4,8 +4,6 @@ html {
 
 body {
     margin: 0;
-    width: 2000px;
-    height: 1700px;
 }
 
 * {
@@ -13,11 +11,11 @@ body {
     padding: 0;
 }
 
-#logoDesktop, #logoLaptop {
+.logoDesktop, .logoLaptop {
     width: 403px;
     height: 93px;
     position: relative;
-    margin: 61px;
+    margin: 61px 0;
 }
 
 .imageLogo {
@@ -25,185 +23,159 @@ body {
     z-index: 1;
 }
 
-#burgerMenu {
+.burgerMenu {
     display: flex;
     flex-direction: column;
     margin-left: 40px;
+    cursor: pointer;
 }
 
-#logoLaptop, #burgerMenu {
+.logoLaptop, .burgerMenu {
     display: none;
 }
 
-#layerOne, #layerTwo, #layerThree {
+.layer {
     margin: 5px;
     width: 60px;
     height: 10px;
     background-color: #3687c4;
 }
 
-.textLogo {
-    width: 77px;
-    height: 41px;
-    position: absolute;
-    top: 26px;
-    left: 163px;
-    color: #3687c4;
-    font-size: 41px;
-    font-weight: 400; 
-    line-height: 34px;
-    z-index: 2;
-}
-
-#header {
+.header {
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
 
-#info {
+.info {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
 }
 
-#textInfo {
-    display: flex;
-    width: 227px;
-    height: 46px;
-    border: 2px solid #d4d4d5;
-    background-color: #ffffff;
-    margin-bottom: 15px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 7px;
-    position: relative;
-    
-}
-
-#textOutput {  
-    color: #6d6e71;
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 27px;
-}
-
-#icons {
-    width: 227px;
+.icons {
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
 
-#iconPhone {
-    width: 28px;
-    height: 29px;
+.iconPhone {
     position: relative;
     cursor: pointer;
+    padding-right: 30px;
 }
 
-#iconPhone:hover #iconPhone{
+.iconPhone:hover .iconPhone{
     visibility: visible;
 }
 
-#iconGeolocation {
-    width: 25px;
-    height: 34px;
+.iconGeolocation {
     position: relative;
     cursor: pointer;
+    border-right: 1px solid #bcbec3;
+    border-left: 1px solid #bcbec3;
+    padding: 0 30px;
 }
 
-#iconMail {
-    width: 30px;
-    height: 25px;
+.iconMail {
     position: relative;
     cursor: pointer;
+    padding-left: 30px;
 }
 
-#iconPhoneTriangle, #iconGeolocationTriangle, #iconMailTriangle {
+.iconPhoneTriangle, .iconGeolocationTriangle, .iconMailTriangle {
     visibility: hidden;
+    position: absolute;
+    width: 200px;
+    border: 2px solid #d4d4d5;
+    background-color: #ffffff;
+    color: #6d6e71;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 27px;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-align: center;
 }
 
-#iconPhoneTriangle::before, #iconGeolocationTriangle::before, #iconMailTriangle::before {
+.iconPhoneTriangle {
+    top: -75px;
+    left: -16px;
+}
+
+.iconGeolocationTriangle {
+    top: -72px;
+    left: -75px;
+}
+
+.iconMailTriangle {
+    top: -77px;
+    left: -161px;
+}
+
+
+.iconPhoneTriangle::before, .iconGeolocationTriangle::before, .iconMailTriangle::before {
     content: "";
     position: absolute;
     border: 20px solid transparent;	
     border-top: 14px solid #d4d4d5;
+    top: 47px;
 }
 
-#iconPhoneTriangle::after, #iconGeolocationTriangle::after, #iconMailTriangle::after {
+.iconPhoneTriangle::after, .iconGeolocationTriangle::after, .iconMailTriangle::after {
     content: "";
     position: absolute;
     border: 20px solid transparent;	
     border-top: 14px solid white;
+    top: 45px;
 }
 
-#iconPhoneTriangle::before {
-    top: -19px;
-    left: -6px;
+.iconPhoneTriangle::before {    
+    left: 10px;
 }
 
-#iconPhoneTriangle::after {
-    top: -21px;
-    left: -6px;
+.iconPhoneTriangle::after {
+    left: 10px;
 }
 
-#iconGeolocationTriangle::before {
-    top: -16px;
-    left: -6px;
+.iconGeolocationTriangle::before {
+    left: 93px;
 }
 
-#iconGeolocationTriangle::after {
-    top: -19px;
-    left: -6px;
+.iconGeolocationTriangle::after {
+    left: 93px;
 }
 
-#iconMailTriangle::before {
-    top: -22px;
-    left: -6px;
+.iconMailTriangle::before {
+    left: 182px;
 }
 
-#iconMailTriangle::after {
-    top: -25px;
-    left: -6px;
+.iconMailTriangle::after {
+    left: 182px;
 }
 
-#iconPhone:hover #iconPhoneTriangle,
-#iconGeolocation:hover #iconGeolocationTriangle,
-#iconMail:hover #iconMailTriangle {
+.iconPhone:hover .iconPhoneTriangle,
+.iconGeolocation:hover .iconGeolocationTriangle,
+.iconMail:hover .iconMailTriangle {
     visibility: visible;
 }
 
-.divideIcons {
-    width: 1px;
-    height: 24px;
-    background-color: #bcbec3;
-}
-
-#navigation {
+.navigation {
     display: flex;
     border-top: 1px solid #eceef4;
     align-items: center;
     justify-content: space-around;
 }
 
-#navList {
+.navList {
     display: flex;
     align-items: center; 
 }
 
-.divideList {
-    width: 1px;
-    height: 86px;
-    background-color: #eceef4;
-    font-size: 13px;
-    position: relative;
-}
-
 li {
     list-style-type: none;
-    padding: 0 20px 0 20px;
+    padding: 30px 20px;
 }
 
 li a{
@@ -217,12 +189,21 @@ li a{
     text-decoration: none;
 }
 
-#homeTriangle, #whatAboutIsamaTriangle, #whatWeDoTriangle, #ourProjectsTriangle, #excellentTeamTriangle, #contactTriangle {
+.navList li:nth-child(2), .navList li:nth-child(4) {
+    border-right: 1px solid #eceef4;
+    border-left: 1px solid #eceef4;
+}
+
+.navList li:nth-child(6) {
+    border-left: 1px solid #eceef4;
+}
+
+.homeTriangle, .whatAboutIsamaTriangle, .whatWeDoTriangle, .ourProjectsTriangle, .excellentTeamTriangle, .contactTriangle {
     position: relative;
     visibility: hidden;
 }
 
-#homeTriangle::before, #whatAboutIsamaTriangle::before, #whatWeDoTriangle::before, #ourProjectsTriangle::before, #excellentTeamTriangle::before, #contactTriangle::before {
+.homeTriangle::before, .whatAboutIsamaTriangle::before, .whatWeDoTriangle::before, .ourProjectsTriangle::before, .excellentTeamTriangle::before, .contactTriangle::before {
     content: "";
     position: absolute;
     border: 18px solid transparent;	
@@ -230,37 +211,37 @@ li a{
     bottom: -35px;
 }
 
-#homeTriangle::before {
+.homeTriangle::before {
     left: 0;
 }
 
-#whatAboutIsamaTriangle::before {
+.whatAboutIsamaTriangle::before {
     left: 39px;
 }
 
-#whatWeDoTriangle::before, #ourProjectsTriangle::before {
+.whatWeDoTriangle::before, .ourProjectsTriangle::before {
     left: 25px;
 }
 
-#excellentTeamTriangle::before {
+.excellentTeamTriangle::before {
     left: 30px;
 }
 
-#contactTriangle::before {
+.contactTriangle::before {
     left: 10px;
 }
 
-#home:hover, #whatAboutIsama:hover, #whatWeDo:hover, #ourProjects:hover, #excellentTeam:hover, #contact:hover {
+.home:hover, .whatAboutIsama:hover, .whatWeDo:hover, .ourProjects:hover, .excellentTeam:hover, .contact:hover {
     color: #1faae2;
 }
 
-#home:hover #homeTriangle, #whatAboutIsama:hover #whatAboutIsamaTriangle, 
-#whatWeDo:hover #whatWeDoTriangle, #ourProjects:hover #ourProjectsTriangle,
-#excellentTeam:hover #excellentTeamTriangle, #contact:hover #contactTriangle {
+.home:hover .homeTriangle, .whatAboutIsama:hover .whatAboutIsamaTriangle, 
+.whatWeDo:hover .whatWeDoTriangle, .ourProjects:hover .ourProjectsTriangle,
+.excellentTeam:hover .excellentTeamTriangle, .contact:hover .contactTriangle {
     visibility: visible;
 }
 
-#search {
+.search {
     display: flex;
     align-items: center;
 }
@@ -275,122 +256,48 @@ li a{
     height: 25px;
     border: none;
     font-size: 15px;
-    margin: 15px;
+    margin-left: 15px;
 }
 
-#mainContent{
+.mainContent{
     display: flex;
     flex-direction: column;
 }
 
-#mainContainer {
-    width: 2000px;
-    height: 885px;
+.mainContainer {
     position: relative;
     z-index: 0;
-    background-image: url('iback.png')
+    
+   
 }
 
-#mainTextUppercase {
-    position: absolute;
-    width: 672px;
-    height: 43px;
-    text-shadow: 1px 1px 8px rgba(1, 1, 1, 0.15);
-    color: #ffffff;
-    font-family: "Open Sans";
-    font-size: 58px;
-    font-weight: 700;
-    line-height: 80.58px;
-    top: 244px;
-    left: 617px;
-    z-index: 2;
+.mainImage {
+    background-image: url('mainImageDesktop.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 90vh;
+    position: relative;
 }
 
-#specChar {
-    width: 88px;
-    height: 91px;
-    position: absolute;
-    top: 255px;
-    left: 623px;
-    z-index: 1;
-}
-
-#mainText {
-    width: 705px;
-    height: 45px;
-    text-shadow: 1px 1px 2px rgba(1, 1, 1, 0.15);
-    color: #ffffff;
-    font-size: 45px;
-    font-weight: 300;
-    line-height: 80.58px;
-    position: absolute;
-    top: 308px;
-    left: 724px;
-    z-index: 2;
-}
-
-#mainSubImage {
-    position: absolute;
-    top: 520px;
-    left: 825px;
-    z-index: 2;
+.mainSubImage {
     display: flex;
-}
-
-#bottomImageOne,  #bottomImageTwo{
     position: absolute;
-    top: 176px;
-    z-index: 3;
+    bottom: 150px;
+    right: 350px;
 }
 
-#iconGreenHeart, #iconYellowHeart {
-    position: absolute;
-    z-index: 4;
-    bottom: 23px;
-}
-
-#iconGreenHeart {
-    left: 126px;
-}
-
-#iconYellowHeart {
-    left: 448px;
-}
-
-#textGreenLike, #textYellowLike {
-    position: absolute;
-    z-index: 4;
-    bottom: 54px;
-    width: 27px;
-    height: 11px;    
-    font-family: "Open Sans - Semibold";
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 58px;
-}
-
-#textGreenLike {
-    color: #ffffff;
-    left: 170px;
-}
-
-#textYellowLike {
-    color: #cc9800;
-    left: 492px;
-}
-
-#thirdImageArrow {
+.thirdImageArrow {
     z-index: 4;
     position: absolute;
     right: 44px;
     top: 101px;
 }
 
-#secondImage {
+.secondImage {
     margin: 0 1px 0 1px;
-}
+} 
 
-#articles {
+.articles {
     display: flex;
     align-items: center;
     height: 512px;
@@ -422,7 +329,7 @@ li a{
     margin-right: 30px;
 }
 
-#searchLaptop {
+.searchLaptop {
     display: none;
 }
 
@@ -430,59 +337,58 @@ li a{
 
     html, body {
         margin: 0;
-        width: 1345px;
-        height: 1280px;
     }
 
-    #header {
+    .header {
         justify-content: space-between;
     }
-    #navigation, #mainSubImage, #icons, #info {
+    .navigation, .mainSubImage, .icons, .info {
         display: none;
     }
 
-    #logoDesktop {
+    .logoDesktop {
         display: none;
     }
 
-    #logoLaptop {
+    .logoLaptop {
         margin: 0;
     }
 
-    #logoLaptop, #searchLaptop, #burgerMenu {
-        display: block;
+    .logoLaptop, .searchLaptop, .burgerMenu {
+        display: flex;
     }
 
-    #searchLaptop {
+    .searchLaptop {
         margin-right: 25px;
     }
 
-    #mainContainer {
-        width: 1345px;
-        height: 736px;
-        background-image: url('ibackLaptop.png')
+    .mainContainer {
+        background-image: url('mainImageLaptop.png');
+        background-size: 100%;
+        height: 90vh;
+        background-repeat: no-repeat;
     }
 
-    #articles {
+    .articles {
         flex-direction: column;
     }
 
-    #article {
+    .article {
         width: 969px;
         margin: 0;
     }
 
-    #mainTextUppercase {
+    .mainTextUppercase {
         top: 261px;
         left: 288px;
     }
     
-    #specChar {
+    .specChar {
         top: 274px;
         left: 296px;
     }
     
-    #mainText {
+    .mainText {
         top: 305px;
         left: 389px;
     }

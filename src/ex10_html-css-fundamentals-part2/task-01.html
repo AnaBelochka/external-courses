@@ -5,47 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Task-01</title>
+    <style>
+        * {
+            margin: 3px;
+        }
+    </style>
 </head>
 <body>
     <form action="http://httpbin.org/get" method="POST">
         <fieldset>
             <legend>Rersonal data</legend>
 
-            <p>
+            <div>
                 <label for="surname">
                     Surname
                     <input type="text" id="surname">
                 </label>
-            </p>
+            </div>
 
-            <p>
+            <div>
                 <label for="firstName">
                     First Name
                     <input type="text" id="firstName">
                 </label>
-            </p>
+            </div>
 
-            <p>
+            <div>
                 <label for="middleName">
                     Middle Name
                     <input type="text" id="middleName">
                 </label>
-            </p>
+            </div>
             
-            <p>
+            <div>
                 You are
                 <input type="radio" name="sex" value="male">male
                 <input type="radio" name="sex" value="female">female
-            </p>
+            </div>
             
-            <p>
+            <div>
                 <label for="age">
                     Age
                     <input type="date" id="age" min="2001-01-01" max="2102-01-01">
                 </label>
-            </p>
+            </div>
             
-            <p>
+            <div>
                 <label for="country">
                     Country of Residence
                     <select id="country">
@@ -53,24 +58,24 @@
                         <option value="Canada">Canada</option>
                     </select>
                 </label>
-            </p>
+            </div>
             
-            <p>
+            <div>
                 City
                 <input type="checkbox" name="city" value="Ryazan">Ryazan 
                 <input type="checkbox" name="city" value="Moscow">Moscow
-            </p>
+            </div>
             
-            <p>
+            <div>
                 <label for="file">
                     Photography
                     <input type="file" id="file">
                 </label>
-            </p>
+            </div>
             
             <hr>
 
-            <p>
+            <div>
                 <label for="title">
                     Title
                     <select name="title" id="title" multiple size="8">
@@ -87,64 +92,60 @@
                         </optgroup>
                     </select>
                 </label>
-            </p>
+            </div>
 
-            <p>
+            <div>
                 <label for="range">
                     Salary
                     <input type="range" id="range" min="0" max="100" step="1" value="50"> 
                 </label>
-            </p>
+            </div>
 
-            <p>
+            <div>
                 <label for="comment">
                     <textarea id="comment" cols="50" rows="10" placeholder="Tell us about yourself..."></textarea>
                 </label>                
-            </p>
+            </div>
 
         </fieldset>
 
         <fieldset>
             <legend>Contact Information</legend>
 
-            <p>
+            <div>
                 <label for="site">
                     Site
                     <input type="url" id="site">
                 </label>
-            </p>
+            </div>
 
-            <p>
+            <div>
                 <label for="email">
                     Email
                     <input type="email" id="email">
                 </label>
-            </p>
+            </div>
 
-            <p>
+            <div>
                 <label for="phone">
                     Phone
                     <input type="tel" id="phone">
                 </label>
-            </p>
+            </div>
 
         </fieldset>
 
-        <p>
+        <div>
             <label for="password">
                 Password
                 <input type="password" id="password">
             </label>
-        </p>
+        </div>
 
-        <p>
-            <label for="send">
-                <input type="submit" id="send" value="Send">
-            </label>
-            <label for="reset">
-                <input type="submit" id="reset" value="Reset">
-            </label>
-        </p>
+        <div>
+            <input type="submit" id="send" value="Send">
+            <input type="submit" id="reset" value="Reset">
+        </div>
 
     </form>
 </body>
