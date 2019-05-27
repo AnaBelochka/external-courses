@@ -1,0 +1,223 @@
+@font-face {
+    font-family: 'ProximaNova';
+    src: url("Proxima\ Nova\ Regular.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "FontAwesome";
+    src: url("FontAwesome.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    font-family: ProximaNova;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 990px;
+    height: 1320px;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    width: 1320px;
+    height: 45px;
+    border-radius: 5px 5px 0 0;
+    background-color: #2f364a;
+}
+
+#footer {
+    width: 1320px;
+    height: 45px;
+    border-radius: 0 0 5px 5px;
+    background-color: #181e2c;
+}
+
+#aside {
+    width: 200px;
+    height: 900px;
+    background-color: #1f2637;
+}
+
+.add {
+    height: 120px;
+    border-bottom: 4px solid #181e2c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.button {
+    width: 160px;
+    height: 44px;
+    border-radius: 4px;
+    background-color: #f2795a;
+    border-style: none;
+    z-index: 2;
+}
+
+.buttonText {
+    position: absolute;
+    width: 86px;
+    height: 10px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 26px;
+    bottom: 62px;
+    z-index: 3;
+}
+
+#mainContent #aside .add i {
+    position: absolute;
+    height: 13px;
+    width: 13px;
+    left: 37px;
+    top: 53px;
+    z-index: 999;
+    color: #ffffff;
+}
+
+.navigation .navList li {
+    position: relative;
+    margin-left: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: #78829d;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 26px;
+    margin-left: 12px;
+}
+
+.navList {
+    list-style-type: none;
+}
+
+.navigation .navList li .list i {
+    width: 15px;
+    height: 15px;
+    top: 16px;
+    left: -12px;
+    position: absolute;
+    color: #78829d;
+}
+
+.list {
+    height: 38px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+
+.navigation {
+    border-bottom: 4px solid #181e2c;
+}
+
+.categories {
+    border-bottom: 4px solid #181e2c;
+}
+
+.categories .navList li::before {
+    content: "";
+    position: absolute;
+    top: 25px;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #e64c66;
+}
+
+.categories .navList li {
+    margin-left: 25.5px;
+    position: relative;
+}
+
+.categories .navList li a {
+    margin-left: 15px;
+}
+
+.categories .navList li:nth-child(1){    
+    padding: 14.5px 0 0 14.5px;
+}
+
+.categories .navList li:nth-child(2){    
+    padding: 14.5px;
+}
+
+.categories .navList li:nth-child(3){    
+    padding: 0 0 14.5px 14.5px;
+}
+
+.categories .navList li:nth-child(4){    
+    padding: 0 0 14.5px 14.5px;
+}
+
+.categories .navList li:nth-child(2)::before{    
+    background-color: #ffab00;
+}
+
+.categories .navList li:nth-child(3)::before{    
+    background-color: #00bfdd;
+    top: 10px;
+}
+
+.categories .navList li:nth-child(4)::before{    
+    background-color: #7874cf;
+    top: 10px;
+}
+
+.histories {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.history {
+    display: flex;
+}
+
+.historyText {
+    width: 129px;
+}
+
+.historyText p {
+    color: #97b3ce;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.historyText p:nth-child(1) {
+    margin-bottom: 18px;
+}
+
+.historyIcon i {
+    color: #97b3ce;
+    margin-right: 11px;
+}
+
+.history:nth-child(1) {
+    margin: 38px 0 37px 0;
+}
+
+.historyText span {
+    color: #6f7d95;
+}

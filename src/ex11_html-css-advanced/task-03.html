@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="task-03.css">
+        <title>Task-03</title>
+    </head>
+    <body>
+        <form>
+
+            <div class="title">    
+                <input id="titleInput" type="text" placeholder="Title" pattern="[A-Za-z]{1,}" required="">            
+                <label for="titleInput">Title</label>
+            </div>
+
+            <div class="priceAndLocation">
+                <div class="price">         
+                    <input id="priceInput" type="text" placeholder="Price" pattern="[0-9]{1,}" required="">
+                    <label for="priceInput">Prcie</label>
+                </div>
+                <div class="location"> 
+                    <input id="locationInput" type="text" placeholder="Specific location (optional)" pattern="[A-Za-z]{1,}" required="">                   
+                    <label for="locationInput">Specific location (optional)</label>
+                </div>
+            </div>
+
+            <div class="description"> 
+                <input id="descriptionInput" type="text" placeholder="Description" pattern="[A-Za-z]{1,}" required="">               
+                <label for="descriptionInput">Description</label>
+            </div>
+
+        </form>
+    </body>
+</html>
