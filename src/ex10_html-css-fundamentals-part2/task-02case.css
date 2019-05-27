@@ -1,0 +1,7 @@
+.th{
+    text-transform: uppercase;
+}
+
+td:nth-child(1) {
+    text-transform: capitalize;
+}

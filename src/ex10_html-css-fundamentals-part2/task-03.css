@@ -1,0 +1,334 @@
+html {
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.logoDesktop, .logoLaptop {
+    width: 403px;
+    height: 93px;
+    position: relative;
+    margin: 61px 0;
+}
+
+.imageLogo {
+    position: absolute;
+    z-index: 1;
+}
+
+.burgerMenu {
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    cursor: pointer;
+}
+
+.logoLaptop, .burgerMenu {
+    display: none;
+}
+
+.layer {
+    margin: 5px;
+    width: 60px;
+    height: 10px;
+    background-color: #3687c4;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.iconPhone {
+    position: relative;
+    cursor: pointer;
+    padding-right: 30px;
+}
+
+.iconPhone:hover .iconPhone{
+    visibility: visible;
+}
+
+.iconGeolocation {
+    position: relative;
+    cursor: pointer;
+    border-right: 1px solid #bcbec3;
+    border-left: 1px solid #bcbec3;
+    padding: 0 30px;
+}
+
+.iconMail {
+    position: relative;
+    cursor: pointer;
+    padding-left: 30px;
+}
+
+.iconPhoneTriangle, .iconGeolocationTriangle, .iconMailTriangle {
+    visibility: hidden;
+    position: absolute;
+    width: 200px;
+    border: 2px solid #d4d4d5;
+    background-color: #ffffff;
+    color: #6d6e71;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 27px;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.iconPhoneTriangle {
+    top: -75px;
+    left: -16px;
+}
+
+.iconGeolocationTriangle {
+    top: -72px;
+    left: -75px;
+}
+
+.iconMailTriangle {
+    top: -77px;
+    left: -161px;
+}
+
+
+.iconPhoneTriangle::before, .iconGeolocationTriangle::before, .iconMailTriangle::before {
+    content: "";
+    position: absolute;
+    border: 20px solid transparent;	
+    border-top: 14px solid #d4d4d5;
+    top: 47px;
+}
+
+.iconPhoneTriangle::after, .iconGeolocationTriangle::after, .iconMailTriangle::after {
+    content: "";
+    position: absolute;
+    border: 20px solid transparent;	
+    border-top: 14px solid white;
+    top: 45px;
+}
+
+.iconPhoneTriangle::before {    
+    left: 10px;
+}
+
+.iconPhoneTriangle::after {
+    left: 10px;
+}
+
+.iconGeolocationTriangle::before {
+    left: 93px;
+}
+
+.iconGeolocationTriangle::after {
+    left: 93px;
+}
+
+.iconMailTriangle::before {
+    left: 182px;
+}
+
+.iconMailTriangle::after {
+    left: 182px;
+}
+
+.iconPhone:hover .iconPhoneTriangle,
+.iconGeolocation:hover .iconGeolocationTriangle,
+.iconMail:hover .iconMailTriangle {
+    visibility: visible;
+}
+
+.navigation {
+    display: flex;
+    border-top: 1px solid #eceef4;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.navList {
+    display: flex;
+    align-items: center; 
+}
+
+li {
+    list-style-type: none;
+    padding: 30px 20px;
+}
+
+li a{
+    width: 122px;
+    height: 10px;
+    color: #6d6e71;
+    font-family: "Open Sans";
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 27px;
+    text-decoration: none;
+}
+
+.navList li:nth-child(2), .navList li:nth-child(4) {
+    border-right: 1px solid #eceef4;
+    border-left: 1px solid #eceef4;
+}
+
+.navList li:nth-child(6) {
+    border-left: 1px solid #eceef4;
+}
+
+.homeTriangle, .whatAboutIsamaTriangle, .whatWeDoTriangle, .ourProjectsTriangle, .excellentTeamTriangle, .contactTriangle {
+    position: relative;
+    visibility: hidden;
+}
+
+.homeTriangle::before, .whatAboutIsamaTriangle::before, .whatWeDoTriangle::before, .ourProjectsTriangle::before, .excellentTeamTriangle::before, .contactTriangle::before {
+    content: "";
+    position: absolute;
+    border: 18px solid transparent;	
+    border-bottom: 10px solid #1faae2;
+    bottom: -35px;
+}
+
+.homeTriangle::before {
+    left: 0;
+}
+
+.whatAboutIsamaTriangle::before {
+    left: 39px;
+}
+
+.whatWeDoTriangle::before, .ourProjectsTriangle::before {
+    left: 25px;
+}
+
+.excellentTeamTriangle::before {
+    left: 30px;
+}
+
+.contactTriangle::before {
+    left: 10px;
+}
+
+.home:hover, .whatAboutIsama:hover, .whatWeDo:hover, .ourProjects:hover, .excellentTeam:hover, .contact:hover {
+    color: #1faae2;
+}
+
+.home:hover .homeTriangle, .whatAboutIsama:hover .whatAboutIsamaTriangle, 
+.whatWeDo:hover .whatWeDoTriangle, .ourProjects:hover .ourProjectsTriangle,
+.excellentTeam:hover .excellentTeamTriangle, .contact:hover .contactTriangle {
+    visibility: visible;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+}
+
+.iconSearch {
+    width: 25px;
+    height: 25px;
+}
+
+.serchInput {
+    width: 200px;
+    height: 25px;
+    border: none;
+    font-size: 15px;
+    margin-left: 15px;
+}
+
+.mainContent{
+    display: flex;
+    flex-direction: column;
+}
+
+.mainContainer {
+    position: relative;
+    z-index: 0;
+    
+   
+}
+
+.mainImage {
+    background-image: url('mainImageDesktop.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 90vh;
+    position: relative;
+}
+
+.mainSubImage {
+    display: flex;
+    position: absolute;
+    bottom: 150px;
+    right: 350px;
+}
+
+.thirdImageArrow {
+    z-index: 4;
+    position: absolute;
+    right: 44px;
+    top: 101px;
+}
+
+.secondImage {
+    margin: 0 1px 0 1px;
+} 
+
+.articles {
+    display: flex;
+    align-items: center;
+    height: 512px;
+    justify-content: center;
+}
+
+.article {
+    display: flex;
+    height: 301px;
+    width: 522px;
+    margin: 61px;
+}
+
+.articleTitle {
+    color: #6d6e71;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+.articleContent {
+    color: #6d6e71;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+}
+
+.articleImage {
+    margin-right: 30px;
+}
+
+.searchLaptop {
+    display: none;
+}

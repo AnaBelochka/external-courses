@@ -1,0 +1,7 @@
+tr:nth-child(2n+1) th, tr:nth-child(2n+1) td{
+    background-color: lightblue;
+}
+
+.th, .td {
+    padding: 10px;
+}
