@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/task.css">
+    <title>Library</title>
+</head>
+<body>
+
+    <header id="header">
+
+        <ul>
+            <li>
+                <a href="#">Help Center</a>
+            </li>
+            <li>
+                <a href="#">Our Support</a>
+            </li>
+             <li class="user">
+                <img src="avatar-01.png" alt="Oops, something wrong!">
+                <a href="#">
+                    John Doe
+                    <i class="fa fa-chevron-circle-down"></i>
+                </a>
+            </li>
+        </ul>
+
+    </header>
+
+    <div id="mainContent">
+
+        <aside id="aside">
+
+            
+            <div class="add">
+                <button class="button"> <i class="fa fa-plus"></i> <span class="buttonText">ADD A BOOK</span> </button>
+            </div>
+
+            <nav class="navigation">
+                <ul class="navList">
+                    <li>
+                        <div class="list">
+                            <i class="fa fa-book"></i>
+                            <a href="">Now Reading</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="list">
+                            <i class="fa fa-globe"></i>
+                            <a href="">Browse</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="list">
+                            <i class="fa fa-shopping-cart"></i>
+                            <a href="">Buy Books</a>
+                        </div>
+                    </li>  
+                    <li>
+                        <div class="list">
+                            <i class="fa fa-star"></i>
+                            <a href="">Favourite Books</a>
+                        </div>
+                    </li>  
+                    <li>
+                        <div class="list">
+                            <i class="fa fa-th-list"></i>
+                            <a href="">Wishlist</a>
+                        </div>
+                    </li> 
+                    <li>
+                        <div class="list">
+                            <i class="fa fa-history"></i>
+                            <a href="">History</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+
+            <nav class="categories">
+
+                <ul class="navList">
+
+                    <li><a class="asideFilter" href="">Must Read Titles</a></li>
+                    <li><a class="asideFilter" href="">Best Of List</a></li>
+                    <li><a class="asideFilter" href="">Classic Novels</a></li>
+                    <li><a class="asideFilter" href="">Non Fiction</a></li>
+
+                </ul>
+
+            </nav>
+
+            <div class="histories">
+
+                <div class="history">
+
+                    <div class="historyIcon">
+                        <i class="fa fa-history"></i>
+                    </div>
+
+                    <div class="historyText">
+
+                        <p><span>You added</span> Fight Club <span>by</span> Chuck Palahniuk <span>to your</span> Must Read Titles.</p>
+                        <p>24 minutes ago</p>
+
+                    </div>
+
+                </div>
+
+                <div class="history">
+
+                    <div class="historyIcon">
+                        <i class="fa fa-history"></i>
+                    </div>
+
+                    <div class="historyText">
+
+                        <p><span>You added</span> The Trial <span>by</span> Franz Kafka <span>to your</span> Must Read Titles.</p>
+                        <p>48 minutes ago</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </aside>
+
+        <main id="main">
+            <header class="headerMain">
+                <p>Browse Available Books</p>
+            </header>
+                <div class="navigationContainer">
+                    <nav class="browseNavigation">
+                        <ul class="browseList">
+                            <li><a class="filter" href="">All Books</a></li>
+                            <li><a class="filter" href="">Most Recent</a></li>
+                            <li><a class="filter" href="">Most Popular</a></li>
+                            <li><a class="filter" href="">Free Books</a></li>
+                        </ul>
+                        <div class="search">
+                            <input class="searchBook" type="text" placeholder="Enter Keywords">
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </nav>
+                </div>
+            <section></section>
+        </main>
+    </div>
+
+    <div class="overlay"></div>
+    <div class="modal">
+        <form name="form">
+            <div>
+                <label for="title">
+                    Название книги:
+                    <input type="text" id="title" name="title" placeholder="Введите название книги">
+                </label>
+            </div>
+            <div>
+                <label for="authorFirstName">
+                    Фамилия автора:
+                    <input type="text" id="authorFirstName" name="authorFirstName" placeholder="Введите фамилию автора">
+                </label>
+            </div>
+            <div>
+                <label for="authorLastName">
+                    Имя Автора:
+                    <input type="text" id="authorLastName" name="authorLastName" placeholder="Введите имя автора">
+                </label>
+            </div>
+            <div>
+                <label for="rating">
+                    Рейтинг книги:
+                    <input type="text" id="rating" name="rating" placeholder="Введите рейтинг (от 0 до 5 звезд)">
+                </label>
+            </div>
+            <div>
+                <label for="cost">
+                    Стоимость книги:
+                    <input type="text" id="cost" name="cost" placeholder="Введите стоимость книги">
+                </label>
+            </div>
+            <div>
+                Выберите категорию:
+                <div><input type="checkbox" name="category" id="category" value="must_read">Рекомендованные к чтению</div>
+                <div><input type="checkbox" name="category" id="category" value="best">Лучшие</div>
+                <div><input type="checkbox" name="category" id="category" value="classic">Классические новеллы</div>
+                <div><input type="checkbox" name="category" id="category" value="non_fiction">Не фантастика</div>
+            </div>
+            <div>
+                <label for="image">
+                    <p>Добавьте картинку</p>
+                    <input type="text" class="picture" name="picture" placeholder="Введите ссылку" required>
+                </label>
+            </div>
+            <div>  
+                <center><button class="modalButton">Добавить книгу</button></center>              
+                <!-- <center><input type="submit" class="modalButton" value="Добавить книгу"></center> -->
+            </div>
+        </form>
+    </div>
+
+    <footer id="footer">
+
+        <ul>
+            <li>
+                <a href="#"><i class="fa fa-question-circle"></i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-cog"></i></a>
+            </li>
+        </ul>
+        
+    </footer>
+
+    <script src="./src/utils/callApi.js"></script>
+    <script src="./src/utils/debounce.js"></script>
+    <script src="./src/models/model.js"></script>
+    <script src="./src/controllers/controller.js"></script>
+    <script src="./src/views/view.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
