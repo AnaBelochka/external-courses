@@ -57,13 +57,15 @@ Controller.prototype.clickAsideFilter = function (event) {
 
 Controller.prototype.asideFilter = function (books, filter) {
 
-    return books.filter(function(element) {
+    return books.filter(element => {
         if (element.categories.length !== 0) {
-            for (let index = 0; index < element.categories.length; index++) {
-                if (element.categories[index] === filter) {
-                    return true;
+            if (element.categories.find( el => {
+                if (el === filter) {
+                    return el;
                 }
-                
+                return false;
+            })) {
+                return true;
             }
         }
         return false;
