@@ -1,5 +1,4 @@
 function callApi (requestURL, callback) {
-    // var model = this;
     var request = new XMLHttpRequest();
     request.open('GET', requestURL);
 

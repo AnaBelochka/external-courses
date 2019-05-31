@@ -2,31 +2,23 @@ function Controller (model) {
     this.model = model;
 }
 
-Controller.prototype.bind = function (func, context) {
-    return function() {
-        return func.apply(context, arguments);
-    };
-}
-
 // function for return books
 Controller.prototype.returnBooks = function () {
-    return this.controller.model.state.booksArray;
+    return this.model.state.booksArray;
 }
 
 // function for push book
 Controller.prototype.pushBook = function (book) {
-    this.controller.model.state.booksArray.push(book);
+    this.model.state.booksArray.push(book);
 }
 
 // functions for search input
 Controller.prototype.handleInput = function (event) {
     
-    var inputValue = event.target.value,
-        self = this;
-    self.controller.model.state.search = inputValue.toLowerCase();
+    var inputValue = event.target.value;
+    this.controller.model.state.search = inputValue.toLowerCase();
 
-    var bindedShowBooks = this.controller.bind(self.showBooks, self);
-    bindedShowBooks(self.controller.model.state.booksArray);
+    this.showBooks(this.controller.model.state.booksArray);
 
 }
 
@@ -43,27 +35,24 @@ Controller.prototype.searchBooks = function(books, word) {
 // functions for aside filters
 Controller.prototype.clickAsideFilter = function (event) {
 
-    var self = this,
-        bindedClearFilters = self.controller.bind(self.controller.clearFilters, self);
+    this.controller.clearFilters();
 
-    bindedClearFilters();
     event.preventDefault();
     var filter = event.target.innerHTML;
-    self.underline();
+    this.underline();
 
     if (filter === "Must Read Titles") {
-        self.controller.model.state.asideFilter = "must_read";
+        this.controller.setAsideFilter("must_read");
     } else if (filter === "Best Of List") {
-        self.controller.model.state.asideFilter = "best";
+        this.controller.setAsideFilter("best");
     } else if (filter === "Classic Novels") {
-        self.controller.model.state.asideFilter = "classic";
+        this.controller.setAsideFilter("classic");
     } else {
-        self.controller.model.state.asideFilter = "non_fiction";
+        this.controller.setAsideFilter("non_fiction");
     }     
 
-    self.changeStyleOnAllBooksFilter();
-    var bindedShowBooks = this.controller.bind(self.showBooks, self);
-    bindedShowBooks(self.controller.model.state.booksArray);
+    this.changeStyleOnAllBooksFilter();
+    this.showBooks(this.controller.model.state.booksArray);
 }
 
 Controller.prototype.asideFilter = function (books, filter) {
@@ -82,20 +71,22 @@ Controller.prototype.asideFilter = function (books, filter) {
 
 }
 
+Controller.prototype.setAsideFilter = function (filter) {
+    this.model.state.asideFilter = filter;
+}
+
 // function for reset top filters
 Controller.prototype.clearFilters = function () {
-    var self = this;
-    self.controller.model.state.topFilters.set('allBooks', true);
-    self.controller.model.state.topFilters.set('mostPopular', false);
-    self.controller.model.state.topFilters.set('freeBooks', false);
-    self.controller.model.state.topFilters.set('mostRecent', false);
+    this.model.state.topFilters.set('allBooks', true);
+    this.model.state.topFilters.set('mostPopular', false);
+    this.model.state.topFilters.set('freeBooks', false);
+    this.model.state.topFilters.set('mostRecent', false);
 }
 
 // functions for top filters
 Controller.prototype.clickFilterAll = function (event) {
 
-    var self = this,
-        state = self.controller.model.state;
+    var state = this.controller.model.state;
     state.topFilters.set('allBooks', true);
     event.preventDefault();
 
@@ -103,36 +94,33 @@ Controller.prototype.clickFilterAll = function (event) {
     state.topFilters.set('freeBooks', false);
     state.topFilters.set('mostRecent', false);
 
-    self.changeStyleOnAllBooksFilter();    
+    this.changeStyleOnAllBooksFilter();    
 
-    var bindedShowBooks = this.controller.bind(self.showBooks, self);
-    bindedShowBooks(self.controller.model.state.booksArray);
+    this.showBooks(this.controller.model.state.booksArray);
 
 }
 
 Controller.prototype.clickTopFilter = function (event) {
 
     var filter = event.target.innerHTML,
-        self = this,
-        state = self.controller.model.state;
+        state = this.controller.model.state;
     event.preventDefault();
 
     if (filter === "Most Recent") {
         state.topFilters.set('mostRecent', !state.topFilters.get('mostRecent'));
-        self.changeStyle(state.topFilters.get('mostRecent'));
+        this.changeFilterStyle(state.topFilters.get('mostRecent'));
     } else if (filter === "Most Popular") {
         state.topFilters.set('mostPopular', !state.topFilters.get('mostPopular'));
-        self.changeStyle(state.topFilters.get('mostPopular'));
+        this.changeFilterStyle(state.topFilters.get('mostPopular'));
     } else {
         state.topFilters.set('freeBooks', !state.topFilters.get('freeBooks'));
-        self.changeStyle(state.topFilters.get('freeBooks'));
+        this.changeFilterStyle(state.topFilters.get('freeBooks'));
     }
     
     state.topFilters.set('allBooks', false);    
-    self.notAllBooksSelected();
+    this.notAllBooksSelected();
     
-    var bindedShowBooks = this.controller.bind(self.showBooks, self);
-    bindedShowBooks(self.controller.model.state.booksArray);
+    this.showBooks(this.controller.model.state.booksArray);
 
 }
 

@@ -8,29 +8,24 @@ View.prototype.init = function () {
         this.controller.model.state.booksArray = booksArray;
         this.showBooks(booksArray);
     });
-    this.events();
+    this.addEvents();
 }
 
 // function for listeners
-View.prototype.events = function () {
-    var self = this,
-        filters = document.getElementsByClassName("filter"),
+View.prototype.addEvents = function () {
+    var filters = document.getElementsByClassName("filter"),
         asideFilters = document.getElementsByClassName("asideFilter");
 
-    var bindedClickFilterAll = self.controller.bind(self.controller.clickFilterAll, self);
-    filters[0].addEventListener('click', bindedClickFilterAll);
-    var bindedClickTopFilter = self.controller.bind(self.controller.clickTopFilter, self);
+    filters[0].addEventListener('click', this.controller.clickFilterAll.bind(this));
     for (let index = 1; index < filters.length; index++) {
-        filters[index].addEventListener('click', bindedClickTopFilter)
+        filters[index].addEventListener('click', this.controller.clickTopFilter.bind(this))
     }
 
-    var bindedClickAsideFilter = self.controller.bind(self.controller.clickAsideFilter, self);
     for (let index = 0; index < asideFilters.length; index++) {
-        asideFilters[index].addEventListener('click', bindedClickAsideFilter)
+        asideFilters[index].addEventListener('click', this.controller.clickAsideFilter.bind(this))
     }
 
-    var bindedHandleInput = self.controller.bind(self.controller.handleInput, self);
-    var debouncedInput = debounce(bindedHandleInput, 300);
+    var debouncedInput = debounce(this.controller.handleInput.bind(this), 300);
     var input = document.getElementsByClassName("searchBook")[0];
 
     input.addEventListener('keyup', debouncedInput);
@@ -42,8 +37,7 @@ View.prototype.events = function () {
     modalForm.addEventListener('click', this.close);
 
     var modalButton = document.getElementsByClassName('modalButton')[0];
-    var bindedAddBook = self.controller.bind(self.addBook, self);
-    modalButton.addEventListener('click', bindedAddBook);
+    modalButton.addEventListener('click', this.addBook.bind(this));
 }
 
 // functions for render books
@@ -54,8 +48,7 @@ View.prototype.createBook = function (bookInfo) {
         divText = document.createElement('div'),
         textH2 = document.createElement('h2'),
         textP = document.createElement('p'),
-        divRating = document.createElement('div'),
-        self = this;
+        divRating = document.createElement('div');
 
     article.className = "article";
     divImg.className = "articleImg";
@@ -78,9 +71,8 @@ View.prototype.createBook = function (bookInfo) {
 
     divRating.setAttribute('data-id', bookInfo.id - 1);
 
-    self.createStars(divRating, rating);
-    var bindedclickOnStarRating = self.controller.bind(self.clickOnStarRating, self)
-    divRating.addEventListener('click', bindedclickOnStarRating);
+    this.createStars(divRating, rating);
+    divRating.addEventListener('click', this.clickOnStarRating.bind(this));
 
     return article;
 }
@@ -89,15 +81,14 @@ View.prototype.clickOnStarRating = function (event) {
     var starNumber = event.target.getAttribute('data-star-number'),
         container = event.target.parentNode,
         containerNumber = event.target.parentNode.getAttribute('data-id'),
-        isRated = event.target.getAttribute('data-rated'),
-        self = this,
-        model = self.controller.model.state;
+        isRated = event.target.getAttribute('data-rated');
+        model = this.controller.model.state;
     if (isRated && starNumber === model.booksArray[containerNumber].rating) {
         model.booksArray[containerNumber].rating = 0;
-        self.createStars(container, 0);
+        this.createStars(container, 0);
     } else {
         model.booksArray[containerNumber].rating = starNumber;
-        self.createStars(container, starNumber);
+        this.createStars(container, starNumber);
     }
 }
 
@@ -128,7 +119,6 @@ View.prototype.createStars = function (container, rating) {
 }
 
 View.prototype.showBooks = function (booksArray) {
-    var self = this;
     var displayedBooks = booksArray;
     var section = document.querySelector('section');
 
@@ -136,35 +126,34 @@ View.prototype.showBooks = function (booksArray) {
         section.removeChild(section.firstChild);
     }
 
-    if (self.controller.model.state.asideFilter !== '') {
-        displayedBooks = this.controller.asideFilter(displayedBooks, self.controller.model.state.asideFilter);
+    if (this.controller.model.state.asideFilter !== '') {
+        displayedBooks = this.controller.asideFilter(displayedBooks, this.controller.model.state.asideFilter);
     }
 
-    if (self.controller.model.state.search !== '') {
-        displayedBooks = this.controller.searchBooks(displayedBooks, self.controller.model.state.search);
+    if (this.controller.model.state.search !== '') {
+        displayedBooks = this.controller.searchBooks(displayedBooks, this.controller.model.state.search);
     }
 
-    if (self.controller.model.state.topFilters.get('mostPopular')) {
+    if (this.controller.model.state.topFilters.get('mostPopular')) {
         displayedBooks = this.controller.filterPop(displayedBooks);
     }
 
-    if (self.controller.model.state.topFilters.get('freeBooks')) {
+    if (this.controller.model.state.topFilters.get('freeBooks')) {
         displayedBooks = this.controller.filterFree(displayedBooks);
     }
 
-    if (self.controller.model.state.topFilters.get('mostRecent')) {
+    if (this.controller.model.state.topFilters.get('mostRecent')) {
         displayedBooks = this.controller.filterRecent(displayedBooks);
     }
 
-    if (!self.controller.model.state.topFilters.get('mostPopular') &&
-        !self.controller.model.state.topFilters.get('freeBooks') &&
-        !self.controller.model.state.topFilters.get('mostRecent')) {
-        self.changeStyleOnAllBooksFilter();
+    if (!this.controller.model.state.topFilters.get('mostPopular') &&
+        !this.controller.model.state.topFilters.get('freeBooks') &&
+        !this.controller.model.state.topFilters.get('mostRecent')) {
+        this.changeStyleOnAllBooksFilter();
     }
 
-    displayedBooks.forEach(function (item) {
-        var bindedCreateBook = self.controller.bind(self.createBook, self);
-        var itemBook = bindedCreateBook(item);
+    displayedBooks.forEach(element => {
+        var itemBook = this.createBook(element);
         section.appendChild(itemBook);
     });
 }
@@ -192,7 +181,7 @@ View.prototype.changeStyleOnAllBooksFilter = function () {
 }
 
 // function for change style of clicked filter
-View.prototype.changeStyle = function (isClicked) {
+View.prototype.changeFilterStyle = function (isClicked) {
     if (!isClicked) {
         event.target.style.backgroundColor = "#eef1f7";
         event.target.style.color = "#8c97b2";
@@ -226,59 +215,81 @@ View.prototype.addBook = function (event) {
     var form = document.forms.form,
         elems = form.elements,
         book = {},
-        self = this,
         filters = elems.category,
-        bindedReturnBooks = self.controller.bind(self.controller.returnBooks, self),
-        returnedBooks = bindedReturnBooks();
+        returnedBooks = this.controller.returnBooks();
     
     event.preventDefault();
     book.id = returnedBooks[returnedBooks.length - 1].id + 1;
     
-    if (elems.title.parentNode.lastChild.className === "errorMessage") this.deleteErrorMsg(elems.title.parentNode);
-    if (!elems.title.value) self.errorMsg(elems.title.parentNode, "Введите название книги!");
-    else {
+    if (elems.title.parentNode.lastChild.className === "errorMessage") {
+        this.deleteErrorMsg(elems.title.parentNode);
+    }
+
+    if (!elems.title.value) {
+        this.errorMsg(elems.title.parentNode, "Введите название книги!");
+    } else {
         book.title = elems.title.value;
     }
     
     book.author = {};
 
-    if (elems.authorFirstName.parentNode.lastChild.className === "errorMessage") this.deleteErrorMsg(elems.authorFirstName.parentNode);
-    if (!elems.authorFirstName.value) self.errorMsg(elems.authorFirstName.parentNode, "Введите фамилию автора!");
-    else {
+    if (elems.authorFirstName.parentNode.lastChild.className === "errorMessage") {
+        this.deleteErrorMsg(elems.authorFirstName.parentNode);
+    }
+
+    if (!elems.authorFirstName.value) {
+        this.errorMsg(elems.authorFirstName.parentNode, "Введите фамилию автора!");
+    } else {
         book.authorFirstName = elems.authorFirstName.value;
     }
     
-    if (elems.authorLastName.parentNode.lastChild.className === "errorMessage") this.deleteErrorMsg(elems.authorLastName.parentNode);
-    if (!elems.authorLastName.value) self.errorMsg(elems.authorLastName.parentNode, "Введите имя автора!");
-    else {
+    if (elems.authorLastName.parentNode.lastChild.className === "errorMessage") {
+        this.deleteErrorMsg(elems.authorLastName.parentNode);
+    }
+
+    if (!elems.authorLastName.value) {
+        this.errorMsg(elems.authorLastName.parentNode, "Введите имя автора!");
+    } else {
         book.authorLastName = elems.authorLastName.value;
     }
     
-    if (elems.rating.parentNode.lastChild.className === "errorMessage") this.deleteErrorMsg(elems.rating.parentNode);
-    if (!elems.rating.value) self.errorMsg(elems.rating.parentNode, "Введите рейтинг книги!");
-    else {
-        if (this.isNumeric(elems.rating.value)) {            
+    if (elems.rating.parentNode.lastChild.className === "errorMessage") {
+        this.deleteErrorMsg(elems.rating.parentNode);
+    }
+    
+    if (!elems.rating.value) {
+        this.errorMsg(elems.rating.parentNode, "Введите рейтинг книги!");
+    } else {
+        if (isNumeric(elems.rating.value)) {            
             book.rating = elems.rating.value;
         } else {
-            self.errorMsg(elems.rating.parentNode, "Введите число от 0 до 5");
+            this.errorMsg(elems.rating.parentNode, "Введите число от 0 до 5");
         }
     }
 
-    if (elems.cost.parentNode.lastChild.className === "errorMessage") this.deleteErrorMsg(elems.cost.parentNode);
-    if (!elems.cost.value) self.errorMsg(elems.cost.parentNode, "Введите стоимость книги!");
-    else {
-        if (this.isNumeric(elems.cost.value)) {            
+    if (elems.cost.parentNode.lastChild.className === "errorMessage") {
+        this.deleteErrorMsg(elems.cost.parentNode);
+    }
+
+    if (!elems.cost.value) {
+        this.errorMsg(elems.cost.parentNode, "Введите стоимость книги!");
+    } else {
+        if (isNumeric(elems.cost.value)) {            
             book.cost = elems.cost.value;
         } else {
-            self.errorMsg(elems.cost.parentNode, "Введите число!");
+            this.errorMsg(elems.cost.parentNode, "Введите число!");
         }
     }
 
     book.categories = [];
 
-    if (elems.picture.parentNode.lastChild.className === "errorMessage") this.deleteErrorMsg(elems.picture.parentNode);
-    if (!elems.picture.value) self.errorMsg(elems.picture.parentNode, "Введите ссылку на картинку к книге!");
-    else {
+    if (elems.picture.parentNode.lastChild.className === "errorMessage") {
+        this.deleteErrorMsg(elems.picture.parentNode);
+    }
+
+    if (!elems.picture.value) {
+        this.errorMsg(elems.picture.parentNode, "Введите ссылку на картинку к книге!");
+    } else {
         book.picture = elems.picture.value;
     }
 
@@ -288,11 +299,10 @@ View.prototype.addBook = function (event) {
         }
     });
 
-    if (elems.title.value && elems.authorFirstName.value && elems.authorLastName.value && this.isNumeric(elems.rating.value) && this.isNumeric(elems.cost.value) && elems.picture.value) {
-        var bindedPushBook = self.controller.bind(self.controller.pushBook, self)
-        bindedPushBook(book);
-        self.close();
-        self.showBooks(returnedBooks);
+    if (elems.title.value && elems.authorFirstName.value && elems.authorLastName.value && isNumeric(elems.rating.value) && isNumeric(elems.cost.value) && elems.picture.value) {
+        this.controller.pushBook(book);
+        this.close();
+        this.showBooks(returnedBooks);
     }   
 
 }
@@ -307,8 +317,4 @@ View.prototype.errorMsg = function (container, msg) {
 
 View.prototype.deleteErrorMsg = function (container) {
     container.removeChild(container.lastChild);
-}
-
-View.prototype.isNumeric = function (n) {
-    return !isNaN(parseFloat(n)) && isFinite(n);
 }
