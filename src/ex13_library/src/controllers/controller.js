@@ -3,19 +3,18 @@ function Controller (model) {
 }
 
 // function for return books
-Controller.prototype.returnBooks = function () {
+Controller.prototype.getBooks = function () {
     return this.model.state.booksArray;
 }
 
 // function for push book
-Controller.prototype.pushBook = function (book) {
+Controller.prototype.addBook = function (book) {
     this.model.state.booksArray.push(book);
 }
 
 // functions for search input
-Controller.prototype.handleInput = function (event) {
+Controller.prototype.handleInput = function (inputValue) {
     
-    var inputValue = event.target.value;
     this.controller.model.state.search = inputValue.toLowerCase();
 
     this.showBooks(this.controller.model.state.booksArray);
@@ -33,12 +32,9 @@ Controller.prototype.searchBooks = function(books, word) {
 }
 
 // functions for aside filters
-Controller.prototype.clickAsideFilter = function (event) {
+Controller.prototype.handleAsideFilter = function (filter) {
 
     this.controller.clearFilters();
-
-    event.preventDefault();
-    var filter = event.target.innerHTML;
     this.underline();
 
     if (filter === "Must Read Titles") {
@@ -59,12 +55,13 @@ Controller.prototype.asideFilter = function (books, filter) {
 
     return books.filter(element => {
         if (element.categories.length !== 0) {
-            if (element.categories.find( el => {
-                if (el === filter) {
-                    return el;
-                }
-                return false;
-            })) {
+            var foundBooks = element.categories.find( el => {
+                    if (el === filter) {
+                        return el;
+                    }
+                    return false;
+                })
+            if (foundBooks) {
                 return true;
             }
         }
@@ -86,12 +83,11 @@ Controller.prototype.clearFilters = function () {
 }
 
 // functions for top filters
-Controller.prototype.clickFilterAll = function (event) {
+Controller.prototype.handleFilterAll = function () {
 
     var state = this.controller.model.state;
     state.topFilters.set('allBooks', true);
-    event.preventDefault();
-
+    
     state.topFilters.set('mostPopular', false);
     state.topFilters.set('freeBooks', false);
     state.topFilters.set('mostRecent', false);
@@ -102,11 +98,9 @@ Controller.prototype.clickFilterAll = function (event) {
 
 }
 
-Controller.prototype.clickTopFilter = function (event) {
+Controller.prototype.handleTopFilter = function (filter) {
 
-    var filter = event.target.innerHTML,
-        state = this.controller.model.state;
-    event.preventDefault();
+    var state = this.controller.model.state;
 
     if (filter === "Most Recent") {
         state.topFilters.set('mostRecent', !state.topFilters.get('mostRecent'));

@@ -8,27 +8,38 @@ View.prototype.init = function () {
         this.controller.model.state.booksArray = booksArray;
         this.showBooks(booksArray);
     });
-    this.addEvents();
+    this.addEventListeners();
 }
 
 // function for listeners
-View.prototype.addEvents = function () {
+View.prototype.addEventListeners = function () {
     var filters = document.getElementsByClassName("filter"),
         asideFilters = document.getElementsByClassName("asideFilter");
 
-    filters[0].addEventListener('click', this.controller.clickFilterAll.bind(this));
+    filters[0].addEventListener('click', event => {
+        this.controller.handleFilterAll.bind(this);
+        event.preventDefault();
+    });
     for (let index = 1; index < filters.length; index++) {
-        filters[index].addEventListener('click', this.controller.clickTopFilter.bind(this))
+        filters[index].addEventListener('click', event => {
+            var bindedHandleTopFilter = this.controller.handleTopFilter.bind(this);
+            event.preventDefault();
+            bindedHandleTopFilter(event.target.innerHTML);
+        })
     }
 
     for (let index = 0; index < asideFilters.length; index++) {
-        asideFilters[index].addEventListener('click', this.controller.clickAsideFilter.bind(this))
+        asideFilters[index].addEventListener('click', event => {
+            var bindedHandleAsideFilter = this.controller.handleAsideFilter.bind(this);
+            event.preventDefault();
+            bindedHandleAsideFilter(event.target.innerHTML);
+        })
     }
 
     var debouncedInput = debounce(this.controller.handleInput.bind(this), 300);
     var input = document.getElementsByClassName("searchBook")[0];
 
-    input.addEventListener('keyup', debouncedInput);
+    input.addEventListener('keyup', event => debouncedInput(event.target.value));
 
     var addBookButton = document.getElementsByClassName('button')[0];
     addBookButton.addEventListener('click', this.show);
@@ -216,7 +227,7 @@ View.prototype.addBook = function (event) {
         elems = form.elements,
         book = {},
         filters = elems.category,
-        returnedBooks = this.controller.returnBooks();
+        returnedBooks = this.controller.getBooks();
     
     event.preventDefault();
     book.id = returnedBooks[returnedBooks.length - 1].id + 1;
@@ -300,7 +311,7 @@ View.prototype.addBook = function (event) {
     });
 
     if (elems.title.value && elems.authorFirstName.value && elems.authorLastName.value && isNumeric(elems.rating.value) && isNumeric(elems.cost.value) && elems.picture.value) {
-        this.controller.pushBook(book);
+        this.controller.addBook(book);
         this.close();
         this.showBooks(returnedBooks);
     }   
