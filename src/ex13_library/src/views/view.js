@@ -17,22 +17,37 @@ View.prototype.addEventListeners = function () {
         asideFilters = document.getElementsByClassName("asideFilter");
 
     filters[0].addEventListener('click', event => {
-        this.controller.handleFilterAll.bind(this);
         event.preventDefault();
+        this.changeStyleOnAllBooksFilter();    
+        this.controller.handleFilterAll();   
+        this.showBooks(this.controller.getBooks());     
     });
     for (let index = 1; index < filters.length; index++) {
         filters[index].addEventListener('click', event => {
-            var bindedHandleTopFilter = this.controller.handleTopFilter.bind(this);
             event.preventDefault();
-            bindedHandleTopFilter(event.target.innerHTML);
+            this.notAllBooksSelected();
+            var filter = event.target.innerHTML, returnedFilter;
+            if (filter === "Most Recent") {
+                returnedFilter = this.controller.handleTopFilter("mostRecent");
+                this.changeFilterStyle(returnedFilter);
+            } else if (filter === "Most Popular") {
+                returnedFilter = this.controller.handleTopFilter("mostPopular");
+                this.changeFilterStyle(returnedFilter);
+            } else {
+                returnedFilter = this.controller.handleTopFilter("freeBooks");
+                this.changeFilterStyle(returnedFilter);
+            }            
+            this.showBooks(this.controller.getBooks());
         })
     }
 
     for (let index = 0; index < asideFilters.length; index++) {
         asideFilters[index].addEventListener('click', event => {
-            var bindedHandleAsideFilter = this.controller.handleAsideFilter.bind(this);
             event.preventDefault();
-            bindedHandleAsideFilter(event.target.innerHTML);
+            this.underline();
+            this.changeStyleOnAllBooksFilter();
+            this.controller.handleAsideFilter(event.target.innerHTML);
+            this.showBooks(this.controller.getBooks());
         })
     }
 

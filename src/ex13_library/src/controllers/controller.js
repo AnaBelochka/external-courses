@@ -34,21 +34,18 @@ Controller.prototype.searchBooks = function(books, word) {
 // functions for aside filters
 Controller.prototype.handleAsideFilter = function (filter) {
 
-    this.controller.clearFilters();
-    this.underline();
+    this.clearFilters();
 
     if (filter === "Must Read Titles") {
-        this.controller.setAsideFilter("must_read");
+        this.setAsideFilter("must_read");
     } else if (filter === "Best Of List") {
-        this.controller.setAsideFilter("best");
+        this.setAsideFilter("best");
     } else if (filter === "Classic Novels") {
-        this.controller.setAsideFilter("classic");
+        this.setAsideFilter("classic");
     } else {
-        this.controller.setAsideFilter("non_fiction");
+        this.setAsideFilter("non_fiction");
     }     
 
-    this.changeStyleOnAllBooksFilter();
-    this.showBooks(this.controller.model.state.booksArray);
 }
 
 Controller.prototype.asideFilter = function (books, filter) {
@@ -85,38 +82,22 @@ Controller.prototype.clearFilters = function () {
 // functions for top filters
 Controller.prototype.handleFilterAll = function () {
 
-    var state = this.controller.model.state;
+    var state = this.model.state;
     state.topFilters.set('allBooks', true);
     
     state.topFilters.set('mostPopular', false);
     state.topFilters.set('freeBooks', false);
     state.topFilters.set('mostRecent', false);
 
-    this.changeStyleOnAllBooksFilter();    
-
-    this.showBooks(this.controller.model.state.booksArray);
-
 }
 
 Controller.prototype.handleTopFilter = function (filter) {
 
-    var state = this.controller.model.state;
-
-    if (filter === "Most Recent") {
-        state.topFilters.set('mostRecent', !state.topFilters.get('mostRecent'));
-        this.changeFilterStyle(state.topFilters.get('mostRecent'));
-    } else if (filter === "Most Popular") {
-        state.topFilters.set('mostPopular', !state.topFilters.get('mostPopular'));
-        this.changeFilterStyle(state.topFilters.get('mostPopular'));
-    } else {
-        state.topFilters.set('freeBooks', !state.topFilters.get('freeBooks'));
-        this.changeFilterStyle(state.topFilters.get('freeBooks'));
-    }
-    
+    var state = this.model.state;
+    state.topFilters.set(filter, !state.topFilters.get(filter));    
     state.topFilters.set('allBooks', false);    
-    this.notAllBooksSelected();
-    
-    this.showBooks(this.controller.model.state.booksArray);
+
+    return state.topFilters.get(filter);
 
 }
 
