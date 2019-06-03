@@ -1,6 +1,6 @@
 function Hangman (word) {
 
-    var result = "", errList = [], countErrors = 6, returnVar, endResult, inputWord=word.toLowerCase();
+    var result, errList, countErrors, returnVar, endResult, inputWord=word.toLowerCase();
 
     function encodedWord (uncodedWord) {
         var res = "";
@@ -10,7 +10,14 @@ function Hangman (word) {
         return res;
     }  
 
-    result = encodedWord(inputWord);
+    this.startAgain = function (newWord) {
+        errList = [];
+        countErrors = 6;
+        inputWord = newWord.toLowerCase();
+        result = encodedWord(inputWord);
+    };
+
+    this.startAgain(word);
 
     this.guess = function (symbol) {
 
@@ -75,13 +82,6 @@ function Hangman (word) {
         var status = result + " | errors left " + countErrors;
         console.log(status);
         return status;  
-    };
-
-    this.startAgain = function (newWord) {
-        errList = [];
-        countErrors = 6;
-        inputWord = newWord.toLowerCase();
-        result = encodedWord(inputWord);
     };
 }
 
